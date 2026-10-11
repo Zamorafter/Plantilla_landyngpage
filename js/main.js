@@ -80,7 +80,12 @@
     // Abrir WhatsApp con el pedido preparado y vaciar el carrito local.
     // WhatsApp no permite a esta página confirmar si el mensaje se envió realmente.
     const whatsappUrl = "https://wa.me/"+phone+"?text="+encodeURIComponent(message);
-    window.open(whatsappUrl,"_blank","noopener");
+    const whatsappWindow = window.open(whatsappUrl,"_blank");
+    if (!whatsappWindow) {
+      // Si el navegador bloquea la ventana, no perder los productos del cliente.
+      alert("Permite abrir WhatsApp para continuar. Tu carrito sigue guardado.");
+      return;
+    }
     cart = [];
     saveCart();
     renderCart();
