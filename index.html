@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="Catálogo y tienda online configurable para pequeños negocios.">
+  <title>Plantilla de negocio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="config/negocio.js" defer></script>
+  <script src="config/productos.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" id="brand" href="#inicio">Tu negocio</a><nav><a href="#catalogo">Catálogo</a><a href="#nosotros">Nosotros</a></nav><button class="cart-button" id="ver-carrito" aria-label="Ver carrito">Carrito <span id="cart-count">0</span></button></header>
+  <main>
+    <section class="hero" id="inicio"><div class="hero-copy"><p class="eyebrow" id="hero-eyebrow">Hecho para ti</p><h1 id="hero-title">Una marca con personalidad.</h1><p id="hero-description">Presenta tus productos de forma clara, moderna y atractiva.</p><a class="primary-button" href="#catalogo">Explorar catálogo</a></div><div class="hero-image" id="hero-image" role="img" aria-label="Imagen destacada del negocio"></div></section>
+    <section class="section" id="catalogo"><div class="section-heading"><div><p class="eyebrow">Nuestra selección</p><h2 id="catalog-title">Productos destacados</h2></div><div class="filters" id="filters"></div></div><div class="product-grid" id="products"></div></section>
+    <section class="about" id="nosotros"><p class="eyebrow">Conócenos</p><h2 id="about-title">Calidad y atención cercana.</h2><p id="about-text">Cuéntales a tus clientes qué hace especial a tu negocio.</p><a class="primary-button" id="contact-link" href="#" target="_blank" rel="noopener">Contáctanos por WhatsApp</a></section>
+  </main>
+  <footer><span id="footer-name">Tu negocio</span><span id="footer-note">Gracias por tu visita.</span></footer>
+  <dialog id="product-dialog"><button class="dialog-close" id="cerrar-dialogo" aria-label="Cerrar">×</button><div id="dialog-content"></div></dialog>
+  <dialog id="cart-dialog"><button class="dialog-close" id="cerrar-carrito" aria-label="Cerrar">×</button><h2>Tu pedido</h2><div id="cart-items"></div><p class="cart-total" id="cart-total"></p><button class="primary-button" id="enviar-pedido">Enviar pedido por WhatsApp</button></dialog>
+</body>
+</html>
