@@ -77,7 +77,14 @@
     const message = `Hola, quiero realizar este pedido en ${business.nombre || "su negocio"}:\n\n${lines.join("\n")}\n\nTotal estimado: ${money(total)}`;
     const phone = String(business.whatsapp || "").replace(/\D/g,"");
     if (!phone) { alert("Configura el número de WhatsApp en config/negocio.js"); return; }
-    window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message),"_blank","noopener");
+    // Abrir WhatsApp con el pedido preparado y vaciar el carrito local.
+    // WhatsApp no permite a esta página confirmar si el mensaje se envió realmente.
+    const whatsappUrl = "https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+    window.open(whatsappUrl,"_blank","noopener");
+    cart = [];
+    saveCart();
+    renderCart();
+    $("#cart-dialog").close();
   });
   applyBusiness(); renderFilters(); renderProducts(); renderCartCount();
 })();
